@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask groundMask;
 
     [Header("Gliding")]
+    [SerializeField] private GameObject glider;
     [SerializeField] private float gliderDrag;
     [SerializeField] private float timeInAirBeforeDeploy;
     [SerializeField] private float distanceToGroundToDeploy;
@@ -36,6 +37,8 @@ public class PlayerController : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
 
         _initialDrag = _rb.drag;
+
+        glider.SetActive(false);
     }
 
     private void OnEnable()
@@ -140,12 +143,14 @@ public class PlayerController : MonoBehaviour
     {
         _gliderDeployed = true;
         _rb.drag = gliderDrag;
+        glider.SetActive(true);
     }
 
     private void RetractGlider()
     {
         _gliderDeployed = false;
         _rb.drag = _initialDrag;
+        glider.SetActive(false);
     }
 
     private bool CanDeploy()
