@@ -112,7 +112,7 @@ Material:
     - _FoamAmount: 0.5
     - _FoamCutoff: 1.25
     - _FoamScale: 200
-    - _FoamSpeed: 0.25
+    - _FoamSpeed: 2
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
